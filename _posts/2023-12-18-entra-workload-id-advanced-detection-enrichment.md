@@ -38,13 +38,13 @@ In the first part of the blog post, I’ve already described "[AzADServicePrinci
 In this sample, I’m using GitHub for implementing AzADSPI and using GitHub Actions for the further automation.
 2. Create an app registration and add the [required permission](https://github.com/JulianHayward/AzADServicePrincipalInsights/tree/main#permissions) as Application Permission and Azure RBAC assignment. You can also create a user-assigned managed identity but in that case the Graph API permissions needs to be configured by API or PowerShell.
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect0.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect0.png)
 
 3. Follow the steps from the following Microsoft Learn article to configure Federated Credentials in GitHub: [Add federated credentials - Connect GitHub and Azure | Microsoft Learn](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux#add-federated-credentials)
 Make sure, that the values `CLIENT_ID`  , `TENANT_ID` and `SUBSCRIPTION_ID` has been added as repository secret.
 4. Use the workflow template file ".github/workflows/AzADServicePrincipalInsights_OIDC.yml" and customize the parameters. It’s mandatory to change the `ManagementGroupId`.
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect1.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect1.png)
 
 5. Execute the workflow and verify that AzADSPI is able to collect the data and was able to commit the files successfully to the main branch.
 
@@ -56,13 +56,13 @@ Those single configuration steps are well documented in Microsoft Learn. Therefo
 1. [Create data collection endpoint](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-data-collection-endpoint)
 In my example, I’m using the same subscription as Microsoft Sentinel for creating a data collection endpoint and rule. Make sure that Data Collection Endpoint and Rule are created in the same but in a dedicated resource group.
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect2.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect2.png)
 
 2. [Create new table in Log Analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-new-table-in-log-analytics-workspace)
 
     I’ve chosen the table name "AzADServicePrincipalInsights_CL" which will be used later in the parser and analytics rules:
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect3.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect3.png)
 
 3. [Parse and filter sample data](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#parse-and-filter-sample-data)
 Get the script "[AzADSPI_DataCollectionIngest.ps1](https://github.com/Cloud-Architekt/AzurePrivilegedIAM/blob/WiBlogPost/Scripts/AzADSPI/AzADSPI_DataCollectionIngest.ps1)" from my repository and execute it by using the parameter `SampleDataOnly` which allows you to get a JSON output. Export the content as file and use them as sample data.
@@ -76,13 +76,13 @@ Use the pre-created Service Principal or Managed Identity (with Federated Creden
     - `DataCollectionResourceGroup`
     - `DataCollectionSubscriptionId`
 
-        ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect4.png)
+        ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect4.png)
 
 2. Copy the PowerShell Script "[AzADSPI_DataCollectionIngest.ps1](https://github.com/Cloud-Architekt/AzurePrivilegedIAM/blob/WiBlogPost/Scripts/AzADSPI/AzADSPI_DataCollectionIngest.ps1)" from my repository to the "pwsh" folder of the repository.
 2. Run the workflow and wait for 10-15 minutes to verify if the data has been successfully ingested. Check if any event entry exists on table `AzADServicePrincipalInsights_CL.`
 3. I’ve created a template for a KQL function with the name "AzADSPI" which will standardize the column names to my defined and preferred schema. This also supports me in sharing the same KQL query logic across other data sources that I’m using in my examples and detection queries. Follow the steps from Microsoft Learn article to [create and use functions in Microsoft Sentinel.](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/functions#use-a-function)
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect5.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect5.png)
 
 
 ## Publish WatchList "WorkloadIdentityInfo" with SentinelEnrichment
@@ -131,14 +131,14 @@ I’ve used some code from my EntraOps PoC project to gather various details abo
 4. Add the SentinelEnrichment PowerShell Module by using the [import function from the PowerShell Gallery](https://learn.microsoft.com/en-us/azure/automation/shared-resources/modules#import-modules-from-the-powershell-gallery). Choose PowerShell 7.2 as runtime environment.
 5. Verify that the module "SentinelEnrichment" has been successfully imported as module.
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect6.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect6.png)
 
 
 ### Add and execute the runbook to create "WorkloadIdentityInfo"
 
 1. Add details about the Sentinel Workspace in the [variables of the automation accounts](https://learn.microsoft.com/en-us/azure/automation/shared-resources/variables?tabs=azure-powershell#create-and-get-a-variable-using-the-azure-portal). Create variables under the section "Shared Resources" with the following names and the related values:
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect7.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect7.png)
 
     - SentinelResourceGroupName
     - SentinelSubscriptionId
@@ -146,18 +146,18 @@ I’ve used some code from my EntraOps PoC project to gather various details abo
 2. Create a new runbook with runbook type "PowerShell" and Runtime version 7.2.
 
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect8.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect8.png)
 
 3. Copy the content of the script from my repository and past them into the runbook:
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect9.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect9.png)
 
 4. Click on "Test pane" to validate that the script in association with the required permissions and variables works.
 5. At next, you need to click on "Publish" to leave the edit and test mode and release the runbook.
 6. [Create a scheduler](https://learn.microsoft.com/en-us/azure/automation/shared-resources/schedules#create-a-schedule) to run the script to update the WatchList automated on your preferred time interval.
 7. Check the results of the WorkloadIdentityInfo table after a successful execution of the runbook.
 
-    ![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect10.png)
+    ![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect10.png)
 
 
 ## Enrichment of "Tiering Model" Classification
@@ -203,7 +203,7 @@ In addition, I’ve created just another function which allows you to get a comb
 
 Sometimes it’s required to get a list of the recent added privileged assignments directly from the `AuditLog` to cover also the latest assignments before the next automation schedule or trigger will update the Custom Table or WatchList. Therefore, I’ve created a function which shows all Microsoft Graph API and Entra ID role assignments of the latest 24 hours.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect11.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect11.png)
 
 - Function "**RecentAddedPrivileges"** to get latest MS Graph API and Entra ID role assignments from Audit Logs:
 [AzureSentinel/Functions/RecentAddedPrivileges.yaml at main · Cloud-Architekt/AzureSentinel (github.com)](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Functions/RecentAddedPrivileges.yaml)
@@ -218,7 +218,7 @@ Leaked credentials of Workload Identity has been detected by Entra ID Protection
 
 Below you’ll see the differences between the original incident on the left side and the enriched incident details (including privileged classification and entity details) from my custom analytics rules on the right side.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect12.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect12.png)
 
 You will find the analytics rule templates on my repository:
 🧪 [**Workload ID Protection Alerts with Enriched Information**](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/Workload%20ID%20Protection%20Alerts%20with%20Enriched%20Information.yaml)
@@ -229,11 +229,11 @@ _Side Note: Using this custom analytic rule could lead to duplicated incidents a
 
 MDA App Governance includes many built-in alert policies but also the option to configure customized patterns to detect suspicious activity. But similar to Entra ID Protection alerts for Workload Identities, the mapping to the entity and description details are also missing. Therefore, I’ve created an rule template to parse the `ApplicationId` from the "AlertLink URL" and correlate them with the `WorkloadIdentityInfo` for entity enrichment. In addition, the description details are not visible in the incident overview.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect13.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect13.png)
 
 As you can see in the next sample, a high volume of e-mail search activities has been detected by using a privileged interface. Information about the Workload Identity from the WatchList and classification by using the `PrivilegedWorkloadIdentityInfo` allows to add some related custom alert detail fields to the incident.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect14.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect14.png)
 
 You will find the analytics rule templates on my repository:
 🧪 **[Workload ID Protection Alerts with Enriched Information](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/Workload%20ID%20Protection%20Alerts%20with%20Enriched%20Information.yaml)**
@@ -242,7 +242,7 @@ You will find the analytics rule templates on my repository:
 
 Microsoft Defender XDR includes a few [anomaly detection policies](https://learn.microsoft.com/en-us/defender-cloud-apps/anomaly-detection-policy#anomaly-detection-policies) for OAuth apps (e.g., [Unusual ISP for an OAuth App](https://learn.microsoft.com/en-us/defender-cloud-apps/anomaly-detection-policy#unusual-isp-for-an-oauth-app)). We are using just another analytics rules to use the entry from the `SecurityAlert` to create an enriched incident.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect15.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect15.png)
 
 [AzureSentinel/Detections/EID-WorkloadIdentities/MDA Threat detection policy with Enriched Information (WorkloadIdentityInfo).yaml at main · Cloud-Architekt/AzureSentinel (github.com)](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/MDA%20Threat%20detection%20policy%20with%20Enriched%20Information%20(WorkloadIdentityInfo).yaml)
 
@@ -269,7 +269,7 @@ BehaviorInfo
 | summarize ApplicationPermissions = make_list(Permission), EnterpriseAccessModelTiering = make_set(EnterpriseAccessModelTiering), EnterpriseAccessModelCategory = make_set(EnterpriseAccessModelCategory) by Timestamp, BehaviorId, ActionType, Description, Categories, AttackTechniques, ServiceSource, DetectionSource, DataSources, AccountUpn, Application, ApplicationId
 ```
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect16.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect16.png)
 
 The User Behavior Entity Analytics in Microsoft Sentinel includes also anomalies about "Application Management" activities from the user. This use case is not limited to a hunting query and would be also a potential anomaly-based detection. In this sample, we use the UEBA tables in combination with the `IdentityInfo` to build an analytics rule in Microsoft Sentinel for create an incident with "Medium" severity under the following conditions
 
@@ -279,7 +279,7 @@ The User Behavior Entity Analytics in Microsoft Sentinel includes also anomalies
 
 The incident will be increased to "High" severity if the Actor has been assigned to "Control Plane" Entra ID role in the past 14 days. All other results will be set to severity "Informational" and not included in the incident creation.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect17.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect17.png)
 
 You can find the KQL logic which is also part of the analytic rule-version of this hunting query:
 🧪 [**UEBA Behavior anomaly on Application Management**](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/UEBA%20Behavior%20anomaly%20on%20Application%20Management.yaml)
@@ -309,7 +309,7 @@ AADUserRiskEvents
 
 The result can be look like this one, attempt to get access to a Primary Refresh Token of a user has been detected which has access to a Workload Identity. Optionally, the classification of the affected workload identity could be also added.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect18.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect18.png)
 
 ### Attack path from unsecured workload environments
 
@@ -330,7 +330,7 @@ arg("").securityresources
 ) on $left.EntityName == $right.ServicePrincipalObjectId
 ```
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect19.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect19.png)
 
 In the result, we can see the details from the MDC Attack Path but also the assigned permissions and classification of the affected workload identity.
 
@@ -344,7 +344,7 @@ In general, assignment of owners to Application and Service Principals should be
 
 I’ve created an analytics rule which will generate an incident with high severity if an ownership of Application or Service Principal has been assigned to a user which has lower privileges than the application. Not only the actor will be included in the incident, also the target principal is part of the entity mapping.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect20.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect20.png)
 
 This rule template can be found here and can be used in combination with the WorkloadIdentityInfo:
 
@@ -354,7 +354,7 @@ This rule template can be found here and can be used in combination with the Wor
 
 Issuing a credential by an owner is a sensitive management operation. Especially, if the owner has the chance use an impersonation of the workload identity for privilege escalation. In the next example, I’m using the classification of the workload but also actor to identify if the credential has been issued by a lower privileged user. This incident can be also correlate to a previous incident ("Added Ownership on privileged workload identity to lower-privileged user") to understand the context of both security events as multi-stage attack.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect21.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect21.png)
 
 You can find the analytic rule in my repository and should be deployed in combination with the previous rule template:
 
@@ -368,7 +368,7 @@ Replay of tokens from unsecured DevOps or other workload environments has been o
 
 Dynamic severity can be set on conditions if the IP address is suspicious or is coming from unfamiliar IP service tags/location. In this sample, the severity is increased to high if it’s outside of Azure.
 
-![Untitled]{{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect22.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect22.png)
 
 The analytic rule logic is available for Azure Resource Manager and Microsoft Graph here:
 **🧪 [Token Replay from workload identity with privileges in Microsoft Azure (WorkloadIdentityInfo).yaml](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/Token%20Replay%20from%20workload%20identity%20with%20privileges%20in%20Microsoft%20Azure%20(WorkloadIdentityInfo).yaml)**
