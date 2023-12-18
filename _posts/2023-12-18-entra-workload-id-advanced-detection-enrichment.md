@@ -218,7 +218,7 @@ Leaked credentials of Workload Identity has been detected by Entra ID Protection
 
 Below you’ll see the differences between the original incident on the left side and the enriched incident details (including privileged classification and entity details) from my custom analytics rules on the right side.
 
-![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect12.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect12.png){: width="75%" }
 
 You will find the analytics rule templates on my repository:
 🧪 [**Workload ID Protection Alerts with Enriched Information**](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/Workload%20ID%20Protection%20Alerts%20with%20Enriched%20Information.yaml)
@@ -229,11 +229,11 @@ _Side Note: Using this custom analytic rule could lead to duplicated incidents a
 
 MDA App Governance includes many built-in alert policies but also the option to configure customized patterns to detect suspicious activity. But similar to Entra ID Protection alerts for Workload Identities, the mapping to the entity and description details are also missing. Therefore, I’ve created an rule template to parse the `ApplicationId` from the "AlertLink URL" and correlate them with the `WorkloadIdentityInfo` for entity enrichment. In addition, the description details are not visible in the incident overview.
 
-![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect13.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect13.png){: width="75%" }
 
 As you can see in the next sample, a high volume of e-mail search activities has been detected by using a privileged interface. Information about the Workload Identity from the WatchList and classification by using the `PrivilegedWorkloadIdentityInfo` allows to add some related custom alert detail fields to the incident.
 
-![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect14.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect14.png){: width="75%" }
 
 You will find the analytics rule templates on my repository:
 🧪 **[Workload ID Protection Alerts with Enriched Information](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/Workload%20ID%20Protection%20Alerts%20with%20Enriched%20Information.yaml)**
@@ -242,7 +242,7 @@ You will find the analytics rule templates on my repository:
 
 Microsoft Defender XDR includes a few [anomaly detection policies](https://learn.microsoft.com/en-us/defender-cloud-apps/anomaly-detection-policy#anomaly-detection-policies) for OAuth apps (e.g., [Unusual ISP for an OAuth App](https://learn.microsoft.com/en-us/defender-cloud-apps/anomaly-detection-policy#unusual-isp-for-an-oauth-app)). We are using just another analytics rules to use the entry from the `SecurityAlert` to create an enriched incident.
 
-![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect15.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect15.png){: width="75%" }
 
 [AzureSentinel/Detections/EID-WorkloadIdentities/MDA Threat detection policy with Enriched Information (WorkloadIdentityInfo).yaml at main · Cloud-Architekt/AzureSentinel (github.com)](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/MDA%20Threat%20detection%20policy%20with%20Enriched%20Information%20(WorkloadIdentityInfo).yaml)
 
@@ -269,7 +269,7 @@ BehaviorInfo
 | summarize ApplicationPermissions = make_list(Permission), EnterpriseAccessModelTiering = make_set(EnterpriseAccessModelTiering), EnterpriseAccessModelCategory = make_set(EnterpriseAccessModelCategory) by Timestamp, BehaviorId, ActionType, Description, Categories, AttackTechniques, ServiceSource, DetectionSource, DataSources, AccountUpn, Application, ApplicationId
 ```
 
-![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect16.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect16.png){: width="75%" }
 
 The User Behavior Entity Analytics in Microsoft Sentinel includes also anomalies about "Application Management" activities from the user. This use case is not limited to a hunting query and would be also a potential anomaly-based detection. In this sample, we use the UEBA tables in combination with the `IdentityInfo` to build an analytics rule in Microsoft Sentinel for create an incident with "Medium" severity under the following conditions
 
@@ -368,7 +368,7 @@ Replay of tokens from unsecured DevOps or other workload environments has been o
 
 Dynamic severity can be set on conditions if the IP address is suspicious or is coming from unfamiliar IP service tags/location. In this sample, the severity is increased to high if it’s outside of Azure.
 
-![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect22.png){: width="10%" }
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect22.png){: width="75%" }
 
 The analytic rule logic is available for Azure Resource Manager and Microsoft Graph here:
 **🧪 [Token Replay from workload identity with privileges in Microsoft Azure (WorkloadIdentityInfo).yaml](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/Token%20Replay%20from%20workload%20identity%20with%20privileges%20in%20Microsoft%20Azure%20(WorkloadIdentityInfo).yaml)**
