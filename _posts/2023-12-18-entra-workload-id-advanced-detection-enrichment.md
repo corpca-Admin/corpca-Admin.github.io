@@ -368,7 +368,7 @@ Replay of tokens from unsecured DevOps or other workload environments has been o
 
 Dynamic severity can be set on conditions if the IP address is suspicious or is coming from unfamiliar IP service tags/location. In this sample, the severity is increased to high if it’s outside of Azure.
 
-![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect22.png)
+![Untitled]({{ site.url }}{{ site.baseurl }}/assets/images/2023-12-18-workload-id-advanced-detection-enrichment/workloadidadvdetect22.png){: width="300" }
 
 The analytic rule logic is available for Azure Resource Manager and Microsoft Graph here:
 **🧪 [Token Replay from workload identity with privileges in Microsoft Azure (WorkloadIdentityInfo).yaml](https://github.com/Cloud-Architekt/AzureSentinel/blob/main/Detections/EID-WorkloadIdentities/Token%20Replay%20from%20workload%20identity%20with%20privileges%20in%20Microsoft%20Azure%20(WorkloadIdentityInfo).yaml)**
