@@ -2,6 +2,7 @@
 title: "EntraOps"
 layout: splash
 permalink: /entraops/
+date: 2016-03-23T11:48:41-04:00
 header:
   overlay_color: "#001B38"
   overlay_filter: "0.5"
@@ -9,16 +10,17 @@ header:
   actions:
     - label: "Download"
       url: "https://github.com/Cloud-Architekt/EntraOps"
-  caption: ""
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Community project to classify, identify and protect your privileges based on Enterprise Access Model (EAM)"
 intro: 
   - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
 feature_row:
-  - image_path: /assets/images/entraops/1-ascode.jpg
+  - image_path: assets/images/entraops/1-ascode.jpg
     alt: "placeholder image 2"  
     title: "Automated setup and tracking privileges <as Code>"
     excerpt: "Automation for deployment in GitHub, support local execution or any platform which supports PowerShell Core" 
   - image_path: /assets/images/entraops/2-identify.jpg
+    image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
     alt: "placeholder image 2"
     title: "Identify and classify your privileged identities and access"
     excerpt: "Get privileges of user and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra. Identify your privileged identities and access based on automated and full customizable classification of Enterprise Access “tiering” model""
