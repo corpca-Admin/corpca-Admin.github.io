@@ -16,7 +16,7 @@ intro:
 feature_row:
   - image_path: /assets/images/entraops/1-ascode.jpg
     alt: "placeholder image 2"  
-    title: 'Automated setup and tracking privileges "as Code"'
+    title: "Automated setup and tracking privileges <as Code>"
     excerpt: "Automation for deployment in GitHub, support local execution or any platform which supports PowerShell Core" 
   - image_path: /assets/images/entraops/2-identify.jpg
     alt: "placeholder image 2"
