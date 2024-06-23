@@ -1,7 +1,7 @@
 ---
 title: "EntraOps"
 layout: splash
-permalink: /EntraOps/
+permalink: /entraops/
 header:
   overlay_color: "#001B38"
   overlay_filter: "0.5"
