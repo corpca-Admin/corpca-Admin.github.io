@@ -15,12 +15,11 @@ intro:
   - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
 feature_row:
   - image_path: /assets/images/entraops/1-ascode.jpg
+    alt: "placeholder image 2"  
     title: 'Automated setup and tracking privileges "as Code"'
-    excerpt: "Automation for deployment in GitHub, support local execution or any platform which supports PowerShell Core"
-    url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#using-entraops-with-github"
-    btn_label: "Deploy as GitHub Template"
-    btn_class: "btn--primary"    
+    excerpt: "Automation for deployment in GitHub, support local execution or any platform which supports PowerShell Core" 
   - image_path: /assets/images/entraops/2-identify.jpg
+    alt: "placeholder image 2"
     title: "Identify and classify your privileged identities and access"
     excerpt: "Get privileges of user and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra. Identify your privileged identities and access based on automated and full customizable classification of Enterprise Access “tiering” model""
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#entraops-integration-in-microsoft-sentinel"
@@ -29,12 +28,14 @@ feature_row:
 feature_row2:    
   - image_path: /assets/images/entraops/3-hunting.jpg
     title: "Integration and hunting of privileged asset data"
+    alt: "placeholder image 2"    
     excerpt: "Ingest classified privileges with detailed data to Log Analytics Workspace or Sentinel WatchList for hunting and enrichment."
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#entraops-integration-in-microsoft-sentinel"
     btn_label: "Configure ingestion"
     btn_class: "btn--primary"
   - image_path: /assets/images/entraops/4-visualize.jpg
     title: "Analysis and visualization of privileged classification"
+    alt: "placeholder image 2"    
     excerpt: "Using ingested data to Log Analytics-/Sentinel-Workspace or WatchLists for monitoring, hunting or entity enrichment of your privileged assets. 
     Workbook to visualize results of all classified roles including charts to identify “tier breach”. Compare classification of privileged objects (based on custom security attribute) with their classified privileged access (identified by EntraOps)."
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#entraops-integration-in-microsoft-sentinel"
