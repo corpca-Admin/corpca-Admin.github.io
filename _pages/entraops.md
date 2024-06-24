@@ -13,13 +13,13 @@ excerpt: "Community project to classify, identify and protect your privileges ba
 feature_row1:
   - image_path: assets/images/entraops/1-ascode.png
     title: "Automated setup and tracking privileges as code"
-    excerpt: "Automation for deployment in GitHub, support local execution or any platform which supports PowerShell Core"
+    excerpt: "The core of EntraOps is a PowerShell module and works on any platform which supports PowerShell Core. It can be also executed locally within an interactive session. It's optimized for being used in a DevOps environment and supports automated deployment for GitHub. This allows to take benefit of Git, to compare changes of your privileged assets.
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#using-entraops-with-github"
     btn_label: "Using EntraOps with GitHub"
     btn_class: "btn--primary"    
 feature_row2:    
   - image_path: /assets/images/entraops/2-identify.png
-    title: "Identify and classify your privileged identities and access"
+    title: "Identify and classify your privileged assets"
     excerpt: "Get privileges of user and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra. Identify your privileged identities and access based on automated and full customizable classification of Enterprise Access tiering” model"
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#classify-privileged-objects-by-custom-security-attributes"
     btn_label: "Classify privileged assets"
