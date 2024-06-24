@@ -10,11 +10,15 @@ header:
     - label: "Download"
       url: "https://github.com/Cloud-Architekt/EntraOps"
 excerpt: "Community project to classify, identify and protect your privileges based on Enterprise Access Model (EAM)"
-feature_row:
+feature_row1:
   - image_path: assets/images/entraops/1-ascode.png
     alt: "placeholder image 1"
     title: "Automated setup and tracking privileges as code"
     excerpt: "Automation for deployment in GitHub, support local execution or any platform which supports PowerShell Core"
+    url: "#test-link"
+    btn_label: "Read More"
+    btn_class: "btn--primary"    
+feature_row2:    
   - image_path: /assets/images/entraops/2-identify.png
     alt: "placeholder image 2"
     title: "Identify and classify your privileged identities and access"
@@ -22,7 +26,7 @@ feature_row:
     url: "#test-link"
     btn_label: "Read More"
     btn_class: "btn--primary"
-feature_row2:
+feature_row3:
   - image_path: /assets/images/entraops/3-hunting.png
     alt: "placeholder image 2"
     title: "Integration and hunting of privileged asset data"
@@ -30,7 +34,7 @@ feature_row2:
     url: "#test-link"
     btn_label: "Read More"
     btn_class: "btn--primary"
-feature_row3:
+feature_row4:
   - image_path: /assets/images/entraops/4-visualize.png
     alt: "placeholder image 2"
     title: "Analysis and visualization of privileged classification"
@@ -40,9 +44,11 @@ feature_row3:
     btn_class: "btn--primary"
 ---
 
-{% include feature_row %}
+{% include feature_row id="feature_row1" type="left" %}
 
-{% include feature_row id="feature_row2" type="left" %}
+{% include feature_row id="feature_row2" type="right" %}
+
+{% include feature_row id="feature_row3" type="left" %}
 
 {% include feature_row id="feature_row3" type="right" %}
 
