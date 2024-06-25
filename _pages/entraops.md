@@ -12,7 +12,7 @@ header:
 excerpt: "Community project to classify, identify and protect your privileges based on Enterprise Access Model (EAM)"
 feature_row1:
   - image_path: /assets/images/entraops/setup_1-ghconfig.gif
-    title: "Automated setup and built for DevOps platforms"
+    title: "Automated setup and support for GitHub"
     excerpt: "The core of EntraOps is a PowerShell module and works on any platform which supports PowerShell Core. It can be also executed locally within an interactive session. It's optimized for being used in a DevOps environment and includes an automated setup for GitHub and Federated Credentials. This also allows you to take advantage of Git, to compare changes of your privileged assets."
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#using-entraops-with-github"
     btn_label: "Using EntraOps with GitHub"
@@ -20,7 +20,8 @@ feature_row1:
 feature_row2:    
   - image_path: /assets/images/entraops/2-identify.png
     title: "Identify and classify your privileged assets"
-    excerpt: "Get insights about privileges of user and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra! EntraOps uses a full customizable classification model. It includes built-in templates to identify privileges based on the tiered administration of the [Enterprise Access Model](https://aka.ms/SPA)."
+    excerpt: "Get insights about privileges of user and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra! EntraOps uses a full customizable classification model.
+    It includes built-in templates to identify privileges based on the tiered administration of the [Enterprise Access Model](https://aka.ms/SPA)."
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#classify-privileged-objects-by-custom-security-attributes"
     btn_label: "Classify privileged assets"
     btn_class: "btn--primary"
