@@ -11,7 +11,7 @@ header:
       url: "https://github.com/Cloud-Architekt/EntraOps"
 excerpt: "Community project to classify, identify and protect your privileges based on Enterprise Access Model (EAM)"
 feature_row1:
-  - image_path: assets/images/entraops/1-ascode.png
+  - image_path: /assets/images/entraops/setup_1-ghconfig.gif
     title: "Automated setup and built for DevOps platforms"
     excerpt: "The core of EntraOps is a PowerShell module and works on any platform which supports PowerShell Core. It can be also executed locally within an interactive session. It's optimized for being used in a DevOps environment and includes an automated setup for GitHub and Federated Credentials. This also allows you to take advantage of Git, to compare changes of your privileged assets."
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#using-entraops-with-github"
@@ -27,14 +27,14 @@ feature_row2:
 feature_row3:
   - image_path: /assets/images/entraops/3-hunting.png
     title: "Automatic update on Control Plane resources and scope"
-    excerpt: 'An optional feature allows you to collect data from other sources to identify high-privileged assets. For example, using classification of critical assets in Microsoft Security Exposure Management. The scope of the privileged principals with access to those assets will be identified as Control Plane and therefore any delegation in Microsoft Entra to manage them. This allows to identify critical scoped role assignments on Groups, Service Principals or Administrative Units."`'
+    excerpt: 'An optional feature allows you to collect data from other sources to identify high-privileged assets. For example, using classification of critical assets in Microsoft Security Exposure Management. The scope of the privileged principals with access to those assets will be identified as Control Plane and therefore any delegation in Microsoft Entra to manage them. This allows to identify critical scoped role assignments on Groups, Service Principals or Administrative Units.'
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#entraops-integration-in-microsoft-sentinel"
     btn_label: "Setup Integration to Microsoft Sentinel"
     btn_class: "btn--primary"
 feature_row4:
   - image_path: /assets/images/entraops/4-visualize.png
     title: "Analysis and visualization of privileged classification"
-    excerpt: 'Ingestion to classified privileges with detailed data to Log Analytics Workspace or Sentinel WatchList is already integrated. This allows to use the EntraOps data for advanced hunting or any other integration for entity enrichment. A workbook template to visualize results of all classified roles is available which allows to identify "tier breach". This allows you also to compare classification of privileged objects (based on custom security attribute) with their classified privileged access (identified by EntraOps)."`'
+    excerpt: 'Ingestion to classified privileges with detailed data to Log Analytics Workspace or Sentinel WatchList is already integrated. This allows to use the EntraOps data for advanced hunting or other integration for entity enrichment. The provded KQL examples shows how to correlate classified privileges by EntraOps with Microsoft Security Exposure Management data. A workbook template to visualize results of all classified roles is available which allows to identify "tier breach". This allows you also to compare classification of privileged objects (based on custom security attribute) with their classified privileged access (identified by EntraOps).'
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#workbook-for-visualization-of-entraops-classification-data"
     btn_label: "Deploy EntraOps Workbook"
     btn_class: "btn--primary"
