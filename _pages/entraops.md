@@ -20,7 +20,7 @@ feature_row1:
 feature_row2:    
   - image_path: /assets/images/entraops/2-identify.png
     title: "Identify and classify your privileged assets"
-    excerpt: "Get insights about privileges of user and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra! EntraOps uses a full customizable classification model and provides templates to identify privileges based on the tiering of the [Enterprise Access Model](https://aka.ms/SPA)."
+    excerpt: "Get insights about privileged users, groups and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra. EntraOps uses a full customizable and flexible classification model. It provides templates (defined in JSON) to identify privileges and tiered administration based on [Enterprise Access Model](https://aka.ms/SPA)."
     url: "https://github.com/Cloud-Architekt/EntraOps/tree/main/Classification/Templates"
     btn_label: "Classification templates"
     btn_class: "btn--primary"
