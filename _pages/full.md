@@ -15,7 +15,7 @@ excerpt: "Community project to classify, identify and protect your privileges ba
 intro: 
   - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
 feature_row:
-  - image_path: assets/images/entraops/1-ascode.jpg
+  - image_path: assets/images/entraops/setup_1-ghconfig.gif
     alt: "placeholder image 2"  
     title: "Automated setup and tracking privileges <as Code>"
     excerpt: "Automation for deployment in GitHub, support local execution or any platform which supports PowerShell Core" 

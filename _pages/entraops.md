@@ -12,8 +12,8 @@ header:
 excerpt: "Community project to classify, identify and protect your privileges based on Enterprise Access Model (EAM)"
 feature_row1:
   - image_path: assets/images/entraops/1-ascode.png
-    title: "Automated setup and tracking privileges as code"
-    excerpt: "The core of EntraOps is a PowerShell module and works on any platform which supports PowerShell Core. It can be also executed locally within an interactive session. It's optimized for being used in a DevOps environment and supports automated deployment for GitHub. This allows to take benefit of Git, to compare changes of your privileged assets."
+    title: "Automated setup and built for DevOps platforms"
+    excerpt: "The core of EntraOps is a PowerShell module and works on any platform which supports PowerShell Core. It can be also executed locally within an interactive session. It's optimized for being used in a DevOps environment and includes an automated setup for GitHub and Federated Credentials. This also allows to take benefit of Git, to compare changes of your privileged assets."
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#using-entraops-with-github"
     btn_label: "Using EntraOps with GitHub"
     btn_class: "btn--primary"    
