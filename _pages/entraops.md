@@ -13,28 +13,28 @@ excerpt: "Community project to classify, identify and protect your privileges ba
 feature_row1:
   - image_path: assets/images/entraops/1-ascode.png
     title: "Automated setup and built for DevOps platforms"
-    excerpt: "The core of EntraOps is a PowerShell module and works on any platform which supports PowerShell Core. It can be also executed locally within an interactive session. It's optimized for being used in a DevOps environment and includes an automated setup for GitHub and Federated Credentials. This also allows to take benefit of Git, to compare changes of your privileged assets."
+    excerpt: "The core of EntraOps is a PowerShell module and works on any platform which supports PowerShell Core. It can be also executed locally within an interactive session. It's optimized for being used in a DevOps environment and includes an automated setup for GitHub and Federated Credentials. This also allows you to take advantage of Git, to compare changes of your privileged assets."
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#using-entraops-with-github"
     btn_label: "Using EntraOps with GitHub"
     btn_class: "btn--primary"    
 feature_row2:    
   - image_path: /assets/images/entraops/2-identify.png
     title: "Identify and classify your privileged assets"
-    excerpt: "Get privileges of user and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra. Identify your privileged identities and access based on automated and full customizable classification of Enterprise Access tiering” model"
+    excerpt: "Get insights about privileges of user and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra! EntraOps uses a full customizable classification model. It includes built-in templates to identify privileges based on the tiered administration of the [Enterprise Access Model](https://aka.ms/SPA)."
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#classify-privileged-objects-by-custom-security-attributes"
     btn_label: "Classify privileged assets"
     btn_class: "btn--primary"
 feature_row3:
   - image_path: /assets/images/entraops/3-hunting.png
-    title: "Integration and hunting of privileged asset data"
-    excerpt: 'Ingest classified privileges with detailed data to Log Analytics Workspace or Sentinel WatchList for hunting and enrichment"`'
+    title: "Automatic update on Control Plane resources and scope"
+    excerpt: 'An optional feature allows you to collect data from other sources to identify high-privileged assets. For example, using classification of critical assets in Microsoft Security Exposure Management. The scope of the privileged principals with access to those assets will be identified as Control Plane and therefore any delegation in Microsoft Entra to manage them. This allows to identify critical scoped role assignments on Groups, Service Principals or Administrative Units."`'
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#entraops-integration-in-microsoft-sentinel"
     btn_label: "Setup Integration to Microsoft Sentinel"
     btn_class: "btn--primary"
 feature_row4:
   - image_path: /assets/images/entraops/4-visualize.png
     title: "Analysis and visualization of privileged classification"
-    excerpt: 'Using ingested data to Log Analytics-/Sentinel-Workspace or WatchLists for monitoring, hunting or entity enrichment of your privileged assets. Workbook to visualize results of all classified roles including charts to identify “tier breach”. Compare classification of privileged objects (based on custom security attribute) with their classified privileged access (identified by EntraOps)."`'
+    excerpt: 'Ingestion to classified privileges with detailed data to Log Analytics Workspace or Sentinel WatchList is already integrated. This allows to use the EntraOps data for advanced hunting or any other integration for entity enrichment. A workbook template to visualize results of all classified roles is available which allows to identify "tier breach". This allows you also to compare classification of privileged objects (based on custom security attribute) with their classified privileged access (identified by EntraOps)."`'
     url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#workbook-for-visualization-of-entraops-classification-data"
     btn_label: "Deploy EntraOps Workbook"
     btn_class: "btn--primary"
