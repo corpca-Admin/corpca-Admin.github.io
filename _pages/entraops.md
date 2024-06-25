@@ -22,8 +22,8 @@ feature_row2:
     title: "Identify and classify your privileged assets"
     excerpt: "Get insights about privileges of user and workload identities with eligible, permanent, time-bounded and nested role assignments in Microsoft Entra! EntraOps uses a full customizable classification model.
     It includes built-in templates to identify privileges based on the tiered administration of the [Enterprise Access Model](https://aka.ms/SPA)."
-    url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#classify-privileged-objects-by-custom-security-attributes"
-    btn_label: "Classify privileged assets"
+    url: "https://github.com/Cloud-Architekt/EntraOps/tree/main/Classification/Templates"
+    btn_label: "Classification templates"
     btn_class: "btn--primary"
 feature_row3:
   - image_path: /assets/images/entraops/3-hunting.png
@@ -36,8 +36,8 @@ feature_row4:
   - image_path: /assets/images/entraops/4-visualize.png
     title: "Analysis and visualization of privileged classification"
     excerpt: 'Ingestion to classified privileges with detailed data to Log Analytics Workspace or Sentinel WatchList is already integrated. This allows to use the EntraOps data for advanced hunting or other integration for entity enrichment. The provded KQL examples shows how to correlate classified privileges by EntraOps with Microsoft Security Exposure Management data. A workbook template to visualize results of all classified roles is available which allows to identify "tier breach". This allows you also to compare classification of privileged objects (based on custom security attribute) with their classified privileged access (identified by EntraOps).'
-    url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#workbook-for-visualization-of-entraops-classification-data"
-    btn_label: "Deploy EntraOps Workbook"
+    url: "https://github.com/Cloud-Architekt/EntraOps?tab=readme-ov-file#entraops-integration-in-microsoft-sentinel"
+    btn_label: "Microsoft Sentinel/XDR Integration"
     btn_class: "btn--primary"
 ---
 
